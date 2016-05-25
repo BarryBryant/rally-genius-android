@@ -11,4 +11,5 @@ public interface SignListPresenter {
     void loadSigns();
     void openSignInfo(@NonNull Sign sign);
     void addSignToSession(@NonNull Sign sign);
+    void openSession();
 }
