@@ -1,0 +1,29 @@
+package com.b3sk.rallygenius.Model;
+
+/**
+ * Created by Joopkins on 5/25/16.
+ */
+public class Sign {
+
+    private int id;
+    private String title;
+    private String description;
+
+    public Sign(int id, String title, String description) {
+        this.id = id;
+        this.title = title;
+        this.description = description;
+    }
+
+    public int getId() {
+        return id;
+    }
+
+    public String getTitle() {
+        return title;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+}
