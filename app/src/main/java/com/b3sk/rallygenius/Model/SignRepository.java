@@ -25,6 +25,6 @@ public class SignRepository {
     }
 
     public void addSignToSession(Sign sign) {
-        Log.d(LOG_TAG, "Adding sign to session: " + sign.getTitle());
+        Log.d(LOG_TAG, "Adding sign to session: " + sign.getName());
     }
 }

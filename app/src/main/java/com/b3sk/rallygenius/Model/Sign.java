@@ -6,12 +6,12 @@ package com.b3sk.rallygenius.Model;
 public class Sign {
 
     private int id;
-    private String title;
+    private String name;
     private String description;
 
-    public Sign(int id, String title, String description) {
+    public Sign(int id, String name, String description) {
         this.id = id;
-        this.title = title;
+        this.name = name;
         this.description = description;
     }
 
@@ -19,8 +19,8 @@ public class Sign {
         return id;
     }
 
-    public String getTitle() {
-        return title;
+    public String getName() {
+        return name;
     }
 
     public String getDescription() {
