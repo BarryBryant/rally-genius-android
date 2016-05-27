@@ -13,12 +13,10 @@ public class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
     public View signView;
     public TextView signId;
-    public TextView signName;
 
     public RecyclerViewHolder(View itemView) {
         super(itemView);
         signView = itemView;
         signId = (TextView) itemView.findViewById(R.id.sign_id);
-        signName = (TextView) itemView.findViewById(R.id.sign_name);
     }
 }

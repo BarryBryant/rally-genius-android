@@ -32,7 +32,6 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, int position) {
-        holder.signName.setText(signs.get(position).getName());
         holder.signId.setText(String.valueOf(signs.get(position).getId()));
     }
 
