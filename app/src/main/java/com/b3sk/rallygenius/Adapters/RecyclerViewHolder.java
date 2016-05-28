@@ -2,6 +2,7 @@ package com.b3sk.rallygenius.Adapters;
 
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
+import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.b3sk.rallygenius.R;
@@ -12,11 +13,11 @@ import com.b3sk.rallygenius.R;
 public class RecyclerViewHolder extends RecyclerView.ViewHolder {
 
     public View signView;
-    public TextView signId;
+    public ImageView signImage;
 
     public RecyclerViewHolder(View itemView) {
         super(itemView);
         signView = itemView;
-        signId = (TextView) itemView.findViewById(R.id.sign_id);
+        signImage = (ImageView) itemView.findViewById(R.id.sign_image);
     }
 }
