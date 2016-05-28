@@ -5,20 +5,16 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:layout_width="wrap_content"
+        android:id="@+id/sign_image"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:src="@drawable/signtwo"
         android:scaleType="fitCenter"
-        android:adjustViewBounds="true"/>
+        android:adjustViewBounds="true"
+        android:cropToPadding="false"
+        android:layout_gravity="center"
+        android:layout_margin="@dimen/sign_margin"
+        tools:src="@drawable/signone"/>
 
-
-    <TextView
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:textSize="100sp"
-        tools:text="1"
-        android:id="@+id/sign_id"
-        android:layout_gravity="center" />
 
 
 </FrameLayout>
