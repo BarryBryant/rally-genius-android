@@ -3,7 +3,6 @@ package com.b3sk.rallygenius.Adapters;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import android.widget.ImageView;
-import android.widget.TextView;
 
 import com.b3sk.rallygenius.R;
 

@@ -1,5 +1,6 @@
 package com.b3sk.rallygenius.Activities;
 
+import android.app.FragmentManager;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
@@ -8,11 +9,15 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
 
 import com.b3sk.rallygenius.Adapters.RecyclerViewAdapter;
+import com.b3sk.rallygenius.Adapters.SignClickListener;
+import com.b3sk.rallygenius.Fragments.MainActivityFragment;
+import com.b3sk.rallygenius.Fragments.SignInfoActivityFragment;
 import com.b3sk.rallygenius.Model.Sign;
 import com.b3sk.rallygenius.Model.SignRepository;
 import com.b3sk.rallygenius.Presenter.SignListPresenterImpl;
@@ -21,11 +26,9 @@ import com.b3sk.rallygenius.View.SignListView;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements SignListView{
+public class MainActivity extends AppCompatActivity implements SignClickListener {
 
-    private RecyclerView recyclerView;
-    private RecyclerViewAdapter recyclerViewAdapter;
-    private SignListPresenterImpl signListPresenter;
+    private final String SIGN_INDEX = "com.b3sk.rallygenius.intent.index";
 
 
     @Override
@@ -35,19 +38,15 @@ public class MainActivity extends AppCompatActivity implements SignListView{
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
 
-        signListPresenter = new SignListPresenterImpl(new SignRepository(), this);
+        if(savedInstanceState == null) {
+            MainActivityFragment fragment = new MainActivityFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, fragment).commit();
+        }
 
-        recyclerView = (RecyclerView) findViewById(R.id.sign_list_recycler);
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
-        recyclerView.setLayoutManager(gridLayoutManager);
 
     }
 
-    @Override
-    public void onResume() {
-        super.onResume();
-        signListPresenter.loadSigns();
-    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
@@ -68,21 +67,34 @@ public class MainActivity extends AppCompatActivity implements SignListView{
             return true;
         }
         return super.onOptionsItemSelected(item);
+
     }
+
+//    @Override
+//    public void onBackPressed(){
+//        FragmentManager fm = getFragmentManager();
+//        if (fm.getBackStackEntryCount() > 0) {
+//            Log.i("MainActivity", "popping backstack");
+//            fm.popBackStack();
+//        } else {
+//            Log.i("MainActivity", "nothing on backstack, calling super");
+//            super.onBackPressed();
+//        }
+//    }
 
     @Override
-    public void ShowSigns(@NonNull List<Sign> signs) {
-        recyclerViewAdapter = new RecyclerViewAdapter(this, signs);
-        recyclerView.setAdapter(recyclerViewAdapter);
+    public void onSignClicked(int position) {
+        Bundle bundle = new Bundle();
+        bundle.putInt(SIGN_INDEX, position);
+
+        SignInfoActivityFragment fragment = new SignInfoActivityFragment();
+        fragment.setArguments(bundle);
+
+        getSupportFragmentManager().beginTransaction()
+                .replace(R.id.container, fragment)
+                .addToBackStack(null)
+                .commit();
     }
 
-    @Override
-    public void ShowSignDetail(@NonNull Sign sign) {
 
-    }
-
-    @Override
-    public void ShowSignSession() {
-
-    }
 }

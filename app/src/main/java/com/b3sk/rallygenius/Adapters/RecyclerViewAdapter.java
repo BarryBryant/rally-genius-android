@@ -1,14 +1,13 @@
 package com.b3sk.rallygenius.Adapters;
 
 import android.content.Context;
-import android.content.Intent;
 import android.content.res.TypedArray;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.ImageView;
 
-import com.b3sk.rallygenius.Activities.SignInfoActivity;
 import com.b3sk.rallygenius.Model.Sign;
 import com.b3sk.rallygenius.R;
 
@@ -23,14 +22,15 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     private Context context;
     private List<Sign> signs;
+    private SignClickListener callback;
     private final LayoutInflater layoutInflater;
+    ImageView imageView;
 
-    private final String SIGN_INDEX = "com.b3sk.rallygenius.intent.index";
 
-
-    public RecyclerViewAdapter(Context context, List<Sign> signs) {
+    public RecyclerViewAdapter(Context context, List<Sign> signs, SignClickListener clickListener) {
         this.context = context;
         this.signs = new ArrayList<>(signs);
+        callback = clickListener;
         layoutInflater = LayoutInflater.from(context);
     }
 
@@ -43,15 +43,14 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(RecyclerViewHolder holder, final int position) {
+        imageView = holder.signImage;
         TypedArray signImgs = context.getResources().obtainTypedArray(R.array.signs);
         holder.signImage.setImageDrawable(signImgs.getDrawable(position));
         signImgs.recycle();
         holder.signView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(context, SignInfoActivity.class);
-                intent.putExtra(SIGN_INDEX, position);
-                context.startActivity(intent);
+                callback.onSignClicked(position);
             }
         });
     }
