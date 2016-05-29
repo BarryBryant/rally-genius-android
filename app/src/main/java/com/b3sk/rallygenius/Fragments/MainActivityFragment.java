@@ -13,6 +13,7 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
+import com.b3sk.rallygenius.Adapters.ExtendedGridLayoutManager;
 import com.b3sk.rallygenius.Adapters.RecyclerViewAdapter;
 import com.b3sk.rallygenius.Adapters.SignClickListener;
 import com.b3sk.rallygenius.Animation.DetailsTransition;
@@ -52,8 +53,12 @@ public class MainActivityFragment extends Fragment implements SignListView, Sign
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(getActivity(), 2);
+        ExtendedGridLayoutManager gridLayoutManager
+                = new ExtendedGridLayoutManager(getActivity(), 2);
         recyclerView.setHasFixedSize(true);
+        recyclerView.setItemViewCacheSize(20);
+        recyclerView.setDrawingCacheEnabled(true);
+        recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_LOW);
         recyclerView.setLayoutManager(gridLayoutManager);
         signListPresenter.loadSigns();
         setHasOptionsMenu(true);

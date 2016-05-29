@@ -2,6 +2,7 @@ package com.b3sk.rallygenius.Adapters;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.graphics.drawable.Drawable;
 import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
@@ -11,6 +12,8 @@ import android.widget.ImageView;
 
 import com.b3sk.rallygenius.Model.Sign;
 import com.b3sk.rallygenius.R;
+import com.bumptech.glide.Glide;
+
 
 import java.util.ArrayList;
 import java.util.List;
@@ -21,11 +24,11 @@ import java.util.List;
  */
 public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder> {
 
+    private final TypedArray signImgs;
     private Context context;
     private List<Sign> signs;
     private SignClickListener callback;
     private final LayoutInflater layoutInflater;
-    ImageView imageView;
 
 
     public RecyclerViewAdapter(Context context, List<Sign> signs, SignClickListener clickListener) {
@@ -33,6 +36,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
         this.signs = new ArrayList<>(signs);
         callback = clickListener;
         layoutInflater = LayoutInflater.from(context);
+        signImgs = context.getResources().obtainTypedArray(R.array.signs);
     }
 
     @Override
@@ -44,11 +48,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(final RecyclerViewHolder holder, final int position) {
-        imageView = holder.signImage;
-        TypedArray signImgs = context.getResources().obtainTypedArray(R.array.signs);
-        holder.signImage.setImageDrawable(signImgs.getDrawable(position));
-        signImgs.recycle();
-
+        //holder.signImage.setImageResource(signImgs.getResourceId(position, 0));
+        holder.signImage.setImageResource(R.drawable.signeight);
         ViewCompat.setTransitionName(holder.signImage, String.valueOf(position) + "_image");
 
         holder.signView.setOnClickListener(new View.OnClickListener() {

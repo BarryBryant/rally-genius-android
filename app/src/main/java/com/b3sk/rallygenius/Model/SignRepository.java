@@ -15,7 +15,7 @@ public class SignRepository {
 
     public List<Sign> getSigns() {
         List<Sign> signs = new ArrayList<>();
-        for(int i = 0; i < 65; i++) {
+        for(int i = 0; i < 66; i++) {
             Sign sign = new Sign(i, "description");
             signs.add(sign);
         }
