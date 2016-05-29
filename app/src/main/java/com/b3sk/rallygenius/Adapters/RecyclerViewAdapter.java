@@ -2,6 +2,7 @@ package com.b3sk.rallygenius.Adapters;
 
 import android.content.Context;
 import android.content.res.TypedArray;
+import android.support.v4.view.ViewCompat;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -42,15 +43,18 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     }
 
     @Override
-    public void onBindViewHolder(RecyclerViewHolder holder, final int position) {
+    public void onBindViewHolder(final RecyclerViewHolder holder, final int position) {
         imageView = holder.signImage;
         TypedArray signImgs = context.getResources().obtainTypedArray(R.array.signs);
         holder.signImage.setImageDrawable(signImgs.getDrawable(position));
         signImgs.recycle();
+
+        ViewCompat.setTransitionName(holder.signImage, String.valueOf(position) + "_image");
+
         holder.signView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                callback.onSignClicked(position);
+                callback.onSignClicked(position, holder.signImage);
             }
         });
     }
@@ -59,4 +63,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     public int getItemCount() {
         return signs.size();
     }
+
+    @Override
+    public long getItemId(int position) { return position;}
 }
