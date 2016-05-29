@@ -48,7 +48,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(final RecyclerViewHolder holder, final int position) {
-        holder.signImage.setImageResource(signImgs.getResourceId(position, 0));
+        holder.signImage.setImageDrawable(signImgs.getDrawable(position));
         ViewCompat.setTransitionName(holder.signImage, String.valueOf(position) + "_image");
 
         holder.signView.setOnClickListener(new View.OnClickListener() {

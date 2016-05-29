@@ -53,12 +53,9 @@ public class MainActivityFragment extends Fragment implements SignListView, Sign
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
-        ExtendedGridLayoutManager gridLayoutManager
-                = new ExtendedGridLayoutManager(getActivity(), 2);
+        GridLayoutManager gridLayoutManager
+                = new GridLayoutManager(getActivity(), 2);
         recyclerView.setHasFixedSize(true);
-        recyclerView.setItemViewCacheSize(20);
-        recyclerView.setDrawingCacheEnabled(true);
-        recyclerView.setDrawingCacheQuality(View.DRAWING_CACHE_QUALITY_LOW);
         recyclerView.setLayoutManager(gridLayoutManager);
         signListPresenter.loadSigns();
         setHasOptionsMenu(true);

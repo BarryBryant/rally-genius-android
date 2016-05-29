@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <array name="signs">
+    <integer-array name="signs">
         <item>@drawable/signone</item>
         <item>@drawable/signtwo</item>
         <item>@drawable/signthree</item>
@@ -67,5 +67,5 @@
         <item>@drawable/signtwoeleven</item>
         <item>@drawable/signtwoninetyeight</item>
         <item>@drawable/signtwoninetynine</item>
-    </array>
+    </integer-array>
 </resources>
