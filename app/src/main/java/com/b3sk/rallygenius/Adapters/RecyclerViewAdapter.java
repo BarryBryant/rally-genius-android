@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.b3sk.rallygenius.Model.Sign;
 import com.b3sk.rallygenius.R;
-import com.bumptech.glide.Glide;
+
 
 
 import java.util.ArrayList;
@@ -48,8 +48,7 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
 
     @Override
     public void onBindViewHolder(final RecyclerViewHolder holder, final int position) {
-        //holder.signImage.setImageResource(signImgs.getResourceId(position, 0));
-        holder.signImage.setImageResource(R.drawable.signeight);
+        holder.signImage.setImageResource(signImgs.getResourceId(position, 0));
         ViewCompat.setTransitionName(holder.signImage, String.valueOf(position) + "_image");
 
         holder.signView.setOnClickListener(new View.OnClickListener() {
