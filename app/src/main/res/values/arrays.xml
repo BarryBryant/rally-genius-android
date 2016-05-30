@@ -69,4 +69,75 @@
         <item>@drawable/signtwoninetyeight</item>
         <item>@drawable/signtwoninetynine</item>
     </integer-array>
+
+    <string-array name="sign_descriptions">
+        <item>@string/sign1</item>
+        <item>@string/sign2</item>
+        <item>@string/sign3</item>
+        <item>@string/sign4</item>
+        <item>@string/sign5</item>
+        <item>@string/sign6</item>
+        <item>@string/sign7</item>
+        <item>@string/sign8</item>
+        <item>@string/sign9</item>
+        <item>@string/sign10</item>
+        <item>@string/sign11</item>
+        <item>@string/sign12</item>
+        <item>@string/sign13</item>
+        <item>@string/sign14</item>
+        <item>@string/sign15</item>
+        <item>@string/sign16</item>
+        <item>@string/sign17</item>
+        <item>@string/sign18</item>
+        <item>@string/sign19</item>
+        <item>@string/sign20</item>
+        <item>@string/sign21</item>
+        <item>@string/sign22</item>
+        <item>@string/sign23</item>
+        <item>@string/sign24</item>
+        <item>@string/sign25</item>
+        <item>@string/sign26</item>
+        <item>@string/sign27</item>
+        <item>@string/sign28</item>
+        <item>@string/sign29</item>
+        <item>@string/sign30</item>
+        <item>@string/sign31</item>
+        <item>@string/sign32</item>
+        <item>@string/sign33</item>
+        <item>@string/sign34</item>
+        <item>@string/sign35</item>
+        <item>@string/sign36</item>
+        <item>@string/sign101</item>
+        <item>@string/sign102</item>
+        <item>@string/sign103</item>
+        <item>@string/sign104</item>
+        <item>@string/sign105</item>
+        <item>@string/sign106</item>
+        <item>@string/sign107</item>
+        <item>@string/sign108</item>
+        <item>@string/sign109</item>
+        <item>@string/sign110</item>
+        <item>@string/sign111</item>
+        <item>@string/sign112</item>
+        <item>@string/sign113</item>
+        <item>@string/sign114</item>
+        <item>@string/sign115</item>
+        <item>@string/sign116</item>
+        <item>@string/sign117</item>
+        <item>@string/sign118</item>
+        <item>@string/sign201</item>
+        <item>@string/sign202</item>
+        <item>@string/sign203</item>
+        <item>@string/sign204</item>
+        <item>@string/sign205</item>
+        <item>@string/sign206</item>
+        <item>@string/sign207</item>
+        <item>@string/sign208</item>
+        <item>@string/sign209</item>
+        <item>@string/sign210</item>
+        <item>@string/sign211</item>
+        <item>@string/sign298</item>
+        <item>@string/sign299</item>
+
+    </string-array>
 </resources>
