@@ -53,8 +53,9 @@ public class MainActivityFragment extends Fragment implements SignListView, Sign
 
     @Override
     public void onViewCreated(View view, Bundle savedInstanceState) {
+        int columns = getActivity().getResources().getInteger(R.integer.grid_columns);
         GridLayoutManager gridLayoutManager
-                = new GridLayoutManager(getActivity(), 2);
+                = new GridLayoutManager(getActivity(), columns);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(gridLayoutManager);
         signListPresenter.loadSigns();

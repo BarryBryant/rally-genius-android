@@ -12,7 +12,7 @@ import android.widget.ImageView;
 
 import com.b3sk.rallygenius.Model.Sign;
 import com.b3sk.rallygenius.R;
-
+import com.b3sk.rallygenius.Utils;
 
 
 import java.util.ArrayList;
@@ -50,6 +50,8 @@ public class RecyclerViewAdapter extends RecyclerView.Adapter<RecyclerViewHolder
     public void onBindViewHolder(final RecyclerViewHolder holder, final int position) {
         holder.signImage.setImageDrawable(signImgs.getDrawable(position));
         ViewCompat.setTransitionName(holder.signImage, String.valueOf(position) + "_image");
+
+        holder.signNumber.setText(Utils.getSignNumber(position));
 
         holder.signView.setOnClickListener(new View.OnClickListener() {
             @Override
