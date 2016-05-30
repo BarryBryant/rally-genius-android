@@ -98,11 +98,18 @@ public class MainActivityFragment extends Fragment implements SignListView, Sign
             fragment.setReturnTransition(new Fade());
         }
 
-
-        getActivity().getSupportFragmentManager().beginTransaction()
-                .replace(R.id.container, fragment)
-                .addToBackStack(null)
-                .addSharedElement(reference, "sign")
-                .commit();
+        if(getActivity().findViewById(R.id.container_two) == null) {
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container, fragment)
+                    .addToBackStack(null)
+                    .addSharedElement(reference, "sign")
+                    .commit();
+        }else {
+            getActivity().getSupportFragmentManager().beginTransaction()
+                    .replace(R.id.container_two, fragment)
+                    .addToBackStack(null)
+                    .addSharedElement(reference, "sign")
+                    .commit();
+        }
     }
 }

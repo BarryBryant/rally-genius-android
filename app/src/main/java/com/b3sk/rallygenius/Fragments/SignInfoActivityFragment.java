@@ -32,9 +32,13 @@ public class SignInfoActivityFragment extends Fragment {
 
         TypedArray signImgs = this.getResources().obtainTypedArray(R.array.signs);
         TypedArray signDesc = this.getResources().obtainTypedArray(R.array.sign_descriptions);
-
-        imageView.setImageDrawable(signImgs.getDrawable(getArguments().getInt(SIGN_INDEX)));
-        textView.setText(signDesc.getText(getArguments().getInt(SIGN_INDEX)));
+        if(getArguments() != null) {
+            imageView.setImageDrawable(signImgs.getDrawable(getArguments().getInt(SIGN_INDEX)));
+            textView.setText(signDesc.getText(getArguments().getInt(SIGN_INDEX)));
+        }else {
+            imageView.setImageDrawable(signImgs.getDrawable(0));
+            textView.setText(signDesc.getText(0));
+        }
 
         signImgs.recycle();
         signDesc.recycle();

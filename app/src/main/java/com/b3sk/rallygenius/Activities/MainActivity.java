@@ -37,6 +37,7 @@ import java.util.List;
 public class MainActivity extends AppCompatActivity {
 
 
+    private boolean twoPane;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -44,11 +45,22 @@ public class MainActivity extends AppCompatActivity {
         setContentView(R.layout.activity_main);
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
+        if(findViewById(R.id.container_two)!=null) {
+            twoPane = true;
+        }
 
-        if (savedInstanceState == null) {
+
+        if (savedInstanceState == null && !twoPane) {
             MainActivityFragment fragment = new MainActivityFragment();
             getSupportFragmentManager().beginTransaction()
                     .add(R.id.container, fragment).commit();
+        }else if(savedInstanceState == null) {
+            MainActivityFragment fragment = new MainActivityFragment();
+            SignInfoActivityFragment signInfoActivityFragment = new SignInfoActivityFragment();
+            getSupportFragmentManager().beginTransaction()
+                    .add(R.id.container, fragment)
+                    .add(R.id.container_two, signInfoActivityFragment)
+                    .commit();
         }
 
 
