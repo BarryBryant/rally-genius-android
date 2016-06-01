@@ -12,5 +12,4 @@ import java.util.List;
 public interface SignListView {
     void ShowSigns(@NonNull List<Sign> signs);
     void ShowSignDetail(@NonNull Sign sign);
-    void ShowSignSession();
 }

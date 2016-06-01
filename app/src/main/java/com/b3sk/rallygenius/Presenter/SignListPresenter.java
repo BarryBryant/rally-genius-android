@@ -10,6 +10,4 @@ import com.b3sk.rallygenius.Model.Sign;
 public interface SignListPresenter {
     void loadSigns();
     void openSignInfo(@NonNull Sign sign);
-    void addSignToSession(@NonNull Sign sign);
-    void openSession();
 }

@@ -47,15 +47,4 @@ public class SignListPresenterTest {
         verify(signListView).ShowSignDetail(any(Sign.class));
     }
 
-    @Test
-    public void clickLaunchSessionOpenSession() {
-        signListPresenter.openSession();
-        verify(signListView).ShowSignSession();
-    }
-
-    @Test
-    public void clickAddSignAddsSignToSession() {
-        signListPresenter.addSignToSession(any(Sign.class));
-        verify(signRepository).addSignToSession(any(Sign.class));
-    }
 }

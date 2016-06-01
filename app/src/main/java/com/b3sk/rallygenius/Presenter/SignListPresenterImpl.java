@@ -32,14 +32,4 @@ public class SignListPresenterImpl implements SignListPresenter {
         signListView.ShowSignDetail(sign);
     }
 
-    @Override
-    public void addSignToSession(@NonNull Sign sign) {
-        signRepository.addSignToSession(sign);
-    }
-
-    @Override
-    public void openSession() {
-        signListView.ShowSignSession();
-    }
-
 }

@@ -76,10 +76,6 @@ public class MainActivityFragment extends Fragment implements SignListView, Sign
 
     }
 
-    @Override
-    public void ShowSignSession() {
-
-    }
 
     @Override
     public void onSignClicked(int position, ImageView reference) {
