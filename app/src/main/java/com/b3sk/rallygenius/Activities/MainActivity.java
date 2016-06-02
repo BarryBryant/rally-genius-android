@@ -34,7 +34,7 @@ import com.b3sk.rallygenius.View.SignListView;
 
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity {
+public class MainActivity extends AppCompatActivity implements android.support.v4.app.FragmentManager.OnBackStackChangedListener {
 
 
     private boolean twoPane;
@@ -63,12 +63,16 @@ public class MainActivity extends AppCompatActivity {
                     .commit();
         }
 
+        getSupportFragmentManager().addOnBackStackChangedListener(this);
+
+
 
     }
 
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
+        //getMenuInflater().inflate(R.menu.menu_main, menu);
         return true;
     }
 
@@ -77,17 +81,22 @@ public class MainActivity extends AppCompatActivity {
         // Handle action bar item clicks here. The action bar will
         // automatically handle clicks on the Home/Up button, so long
         // as you specify a parent activity in AndroidManifest.xml.
-        int id = item.getItemId();
-
-        //noinspection SimplifiableIfStatement
-        if (id == R.id.action_settings) {
-            return true;
+        if(item.getItemId() == android.R.id.home){
+            onBackPressed();
         }
         return super.onOptionsItemSelected(item);
 
     }
 
 
-
-
+    @Override
+    public void onBackStackChanged() {
+        if(getSupportActionBar() != null && !twoPane) {
+            if (getSupportFragmentManager().getBackStackEntryCount() > 0) {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+            } else {
+                getSupportActionBar().setDisplayHomeAsUpEnabled(false);
+            }
+        }
+    }
 }
