@@ -28,10 +28,13 @@ import com.b3sk.rallygenius.Fragments.MainActivityFragment;
 import com.b3sk.rallygenius.Fragments.SignInfoActivityFragment;
 import com.b3sk.rallygenius.Model.Sign;
 import com.b3sk.rallygenius.Model.SignRepository;
+import com.b3sk.rallygenius.MyApplication;
 import com.b3sk.rallygenius.Presenter.SignListPresenterImpl;
 import com.b3sk.rallygenius.R;
 import com.b3sk.rallygenius.View.SignListView;
 import com.google.android.gms.ads.MobileAds;
+import com.google.android.gms.analytics.HitBuilders;
+import com.google.android.gms.analytics.Tracker;
 
 import java.util.List;
 
@@ -39,6 +42,7 @@ public class MainActivity extends AppCompatActivity implements android.support.v
 
 
     private boolean twoPane;
+    private Tracker tracker;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -68,9 +72,17 @@ public class MainActivity extends AppCompatActivity implements android.support.v
 
         MobileAds.initialize(getApplicationContext(),
                 getResources().getString(R.string.banner_ad_app_id));
+        MyApplication application = (MyApplication) getApplication();
+        tracker = application.getDefaultTracker();
 
     }
 
+    @Override
+    public void onResume() {
+        super.onResume();
+        tracker.setScreenName("Image~" + "Main Activity");
+        tracker.send(new HitBuilders.ScreenViewBuilder().build());
+    }
 
     @Override
     public boolean onCreateOptionsMenu(Menu menu) {
