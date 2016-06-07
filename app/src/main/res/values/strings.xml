@@ -2,8 +2,10 @@
     <string name="app_name">RallyGenius</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_sign_info">SignInfoActivity</string>
-    <string name="lorem_ipsum">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum tristique erat vitae metus imperdiet egestas. Nunc tempus lorem a diam tempor venenatis. Quisque laoreet sed lorem et maximus. Integer varius commodo magna non euismod. Vivamus consectetur consectetur ipsum, interdum efficitur neque dapibus sit amet. Proin finibus lectus ut metus efficitur suscipit vel quis nisl. Interdum et malesuada fames ac ante ipsum primis in faucibus. Quisque eu ipsum faucibus, commodo eros at, pellentesque magna. Cras aliquet urna nisi. Nulla a hendrerit leo. Fusce blandit turpis quis lorem gravida blandit. Nullam nec lobortis tortor.</string>
     <string name="sign_transition">sign_transition</string>
+
+    <string name="banner_ad_unit_id">ca-app-pub-3940256099942544/6300978111</string>
+    <string name="banner_ad_app_id">ca-app-pub-3940256099942544~6300978111</string>
     
     <string name="sign1">START – Indicates the beginning of the course. Dog does not have
 to be sitting at start.</string>

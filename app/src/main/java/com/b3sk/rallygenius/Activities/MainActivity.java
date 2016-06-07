@@ -31,6 +31,7 @@ import com.b3sk.rallygenius.Model.SignRepository;
 import com.b3sk.rallygenius.Presenter.SignListPresenterImpl;
 import com.b3sk.rallygenius.R;
 import com.b3sk.rallygenius.View.SignListView;
+import com.google.android.gms.ads.MobileAds;
 
 import java.util.List;
 
@@ -65,7 +66,8 @@ public class MainActivity extends AppCompatActivity implements android.support.v
 
         getSupportFragmentManager().addOnBackStackChangedListener(this);
 
-
+        MobileAds.initialize(getApplicationContext(),
+                getResources().getString(R.string.banner_ad_app_id));
 
     }
 

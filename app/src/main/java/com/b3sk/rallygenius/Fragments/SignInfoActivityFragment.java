@@ -10,6 +10,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.b3sk.rallygenius.R;
+import com.google.android.gms.ads.AdRequest;
+import com.google.android.gms.ads.AdView;
+import com.google.android.gms.ads.MobileAds;
 
 /**
  * A placeholder fragment containing a simple view.
@@ -42,6 +45,10 @@ public class SignInfoActivityFragment extends Fragment {
 
         signImgs.recycle();
         signDesc.recycle();
+
+        AdView adView = (AdView) rootView.findViewById(R.id.adView);
+        AdRequest adRequest = new AdRequest.Builder().build();
+        adView.loadAd(adRequest);
 
         return rootView;
     }
