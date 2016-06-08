@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">RallyGenius</string>
+    <string name="app_name">Rally Genius</string>
     <string name="action_settings">Settings</string>
     <string name="title_activity_sign_info">SignInfoActivity</string>
     <string name="sign_transition">sign_transition</string>
