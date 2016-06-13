@@ -13,7 +13,6 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.widget.ImageView;
 
-import com.b3sk.rallygenius.Adapters.ExtendedGridLayoutManager;
 import com.b3sk.rallygenius.Adapters.RecyclerViewAdapter;
 import com.b3sk.rallygenius.Adapters.SignClickListener;
 import com.b3sk.rallygenius.Animation.DetailsTransition;
