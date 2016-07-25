@@ -46,9 +46,6 @@ public class SignInfoActivityFragment extends Fragment {
         signImgs.recycle();
         signDesc.recycle();
 
-        AdView adView = (AdView) rootView.findViewById(R.id.adView);
-        AdRequest adRequest = new AdRequest.Builder().build();
-        adView.loadAd(adRequest);
 
         return rootView;
     }
