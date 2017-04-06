@@ -18,6 +18,7 @@ import com.b3sk.rallygenius.Adapters.SignClickListener;
 import com.b3sk.rallygenius.Animation.DetailsTransition;
 import com.b3sk.rallygenius.Model.Sign;
 import com.b3sk.rallygenius.Model.SignRepository;
+import com.b3sk.rallygenius.Model.SignSerializer;
 import com.b3sk.rallygenius.Presenter.SignListPresenterImpl;
 import com.b3sk.rallygenius.R;
 import com.b3sk.rallygenius.View.SignListView;
@@ -43,7 +44,8 @@ public class MainActivityFragment extends Fragment implements SignListView, Sign
 
         View rootView = inflater.inflate(R.layout.content_main, container, false);
 
-        signListPresenter = new SignListPresenterImpl(new SignRepository(), this);
+        SignSerializer serializer = new SignSerializer(getContext());
+        signListPresenter = new SignListPresenterImpl(new SignRepository(serializer), this);
 
         recyclerView = (RecyclerView) rootView.findViewById(R.id.sign_list_recycler);
 

@@ -12,14 +12,20 @@ public class SignRepository {
 
 
     private static final String LOG_TAG = SignRepository.class.getSimpleName();
+    private SignSerializer serializer;
+    private List<Sign> signs;
+
+    public SignRepository(SignSerializer serializer) {
+        this.serializer = serializer;
+    }
 
     public List<Sign> getSigns() {
-        List<Sign> signs = new ArrayList<>();
-        for(int i = 0; i < 67; i++) {
-            Sign sign = new Sign(i, "description");
-            signs.add(sign);
+        if (signs == null) {
+            signs = serializer.generateSignsFromJSON();
+            return signs;
+        } else {
+            return signs;
         }
-        return signs;
     }
 
     public void addSignToSession(Sign sign) {
