@@ -5,6 +5,8 @@ import android.support.test.rule.ActivityTestRule;
 import android.support.test.runner.AndroidJUnit4;
 
 import com.b3sk.rallygenius.Activities.MainActivity;
+import com.b3sk.rallygenius.Model.SignRepository;
+import com.b3sk.rallygenius.Model.SignSerializer;
 
 import org.junit.Rule;
 import org.junit.Test;
@@ -43,7 +45,9 @@ public class MainActivityTest {
     public void shouldDisplaySignOneContentOnClickSignOne() {
         onView(withId(R.id.sign_list_recycler)).perform(RecyclerViewActions.actionOnItemAtPosition(
         0, click()));
-        onView(withText(R.string.sign1)).check(matches(isDisplayed()));
+        SignRepository repo = new SignRepository(new SignSerializer(activityTestRule.getActivity()));
+        String signOneText = repo.getSigns().get(0).getDescription();
+        onView(withText(signOneText)).check(matches(isDisplayed()));
     }
 
 }
