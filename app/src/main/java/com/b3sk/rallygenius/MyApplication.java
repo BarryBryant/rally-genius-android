@@ -13,21 +13,12 @@ import com.google.android.gms.analytics.Tracker;
  */
 public class MyApplication extends Application {
 
-    private static Context context;
 
-    public static Resources getResourcesStatic(){
-        return context.getResources();
-    }
-
-    public static Context getAppContext() {
-        return context;
-    }
     private Tracker tracker;
 
     @Override
     public void onCreate(){
         super.onCreate();
-        this.context = getApplicationContext();
     }
 
     synchronized public Tracker getDefaultTracker() {
